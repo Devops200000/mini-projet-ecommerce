@@ -40,14 +40,15 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::section('E-commerce');
-        yield MenuItem::section('Menu');
+        yield MenuItem::section('Produits');
 
-        yield MenuItem::subMenu('Produits', 'fa fa-bars')->setSubItems([
+        yield MenuItem::subMenu('Actions', 'fa fa-bars')->setSubItems([
             MenuItem::linkToCrud('Create Produit', 'fa fa-plus', Product::class)->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Show Produits', 'fa fa-eye', Product::class)
         ]);
      
-       yield MenuItem::subMenu('Categories', 'fa fa-bars')->setSubItems([
+        yield MenuItem::section('Categories');
+       yield MenuItem::subMenu('Actions', 'fa fa-bars')->setSubItems([
             MenuItem::linkToCrud('Create Categorie', 'fa fa-plus', Category::class)->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Show Categories', 'fa fa-eye', Category::class)
         ]);
