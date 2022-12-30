@@ -22,19 +22,24 @@ class DashboardController extends AbstractDashboardController
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
-        return parent::index();
+       /* return parent::index();
 
-        $url = $this->adminUrlGenerator
-        ->setController(ProductCrudController::class)
-        ->generateUrl();
-       return $this->redirect($url);
+        $url = $this->adminUrlGenerator->setController(ProductCrudController::class)->generateUrl();
+       return $this->redirect($url);*/
+
+         $routeBuilder = $this->container->get(AdminUrlGenerator::class);
+        $url = $routeBuilder->setController(ProductCrudController::class)->generateUrl();
+
+        return $this->redirect($url);
 
     }
 
     public function configureDashboard(): Dashboard
     {
+       
         return Dashboard::new()
-            ->setTitle('Firstapp');
+            ->setTitle('<img src="" />');
+          //  ->setTitle('<img src="..."> ACME <span class="text-small">Corp.</span>');
     }
 
     public function configureMenuItems(): iterable
