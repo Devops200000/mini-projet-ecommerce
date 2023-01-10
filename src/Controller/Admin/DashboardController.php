@@ -44,7 +44,7 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::section('e-commerce');
+        yield MenuItem::section('E-commerce');
         yield MenuItem::section('Produits');
 
         yield MenuItem::subMenu('Actions', 'fa fa-bars')->setSubItems([
